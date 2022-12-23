@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    --color: #48ba4ef4;
+    --wifi: rgb(0, 255, 0);
+    --wifisym: var(--wifi);
+    background-color: var(--color);
+  
+}
+body.disabled{
+    --color: #eb4d4b;
+    --wifi: rgba(0, 0, 0, 0.2);
+    --wifisym: #feca57;
+}
+.container{
+    width: 320px;
+    height: 320px;
+    border: 10px solid; 
+    top: 50%;
+    left: 60%;
+    border: 10px solid rgba(255, 255, 255, 0.1);
+    transform: translate(250%, 95%);
+    box-shadow: -18px -18px 24px 8px rgba(62, 246, 62, 0.7),
+    18px 18px 24px 8px rgba(0, 255, 0, 0.2),
+    18px -18px 24px 8px rgba(62, 246, 62, 0.7),
+    18px 18px 24px 8px rgba(0, 255, 0, 0.2);
+    border-radius: 24px;
+}
+
+body.disabled .container{
+    box-shadow: -18px -18px 24px 8px #ff5d4b,
+    18px 18px 24px 8px #e13331,
+    18px -18px 24px 8px #ff5d4b, 
+    18px 18px 24px 8px #e13331;
+   
+}
+
+
+.container span {
+    position: relative;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border: 16px solid var(--wifi);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(45deg);
+    border-bottom: 0;
+    border-right: 0;
+    border-radius: 100% 0 0 0;
+    box-shadow: -8px -8px 0 8px var(--color),
+                -15px -15px 0 14px var(--wifi),
+                -22px -22px 0 22px var(--color),
+                -29px -29px 0 28px var(--wifi);
+    background: radial-gradient(circle, var(--wifisym) 72%, transparent 72%) no-repeat;
+    background-size: 50px 50px;
+    background-position: 20px 20px;
+    transition: all linear 0.3s;
+}
+
+body.disabled .container span{
+       background-position: 10px 10px;
+       background-size: 30px 30px;
+     
+}
+
+body.disabled .container span::before{
+    content:  '';
+    position: absolute;
+    height: 100px;
+    width: 20px;
+    top: -80px;
+    left: -40px;
+    background-color: var(--wifisym);
+    border-radius: 0 0 100% 100%;
+    transform: rotate(-45deg);
+}
